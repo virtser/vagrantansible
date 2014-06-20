@@ -3,4 +3,4 @@
 sudo apt-get update
 
 # install CouchDB
-sudo apt-get install couchdb -y
+sudo apt-get install -y couchdb 
