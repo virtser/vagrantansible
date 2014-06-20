@@ -10,7 +10,26 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "base"
+  config.vm.define "front" do |front|
+    front.vm.box = "hashicorp/precise32"
+    front.vm.provision :shell, path: "front.sh"
+    front.vm.network :forwarded_port, host: 4567, guest: 80
+    front.vm.network "private_network", ip: "192.168.10.1"
+  end
+
+  config.vm.define "back" do |back|
+    back.vm.box = "hashicorp/precise32"
+    back.vm.provision :shell, path: "back.sh"
+    back.vm.network :forwarded_port, host: 4567, guest: 8080
+    back.vm.network "private_network", ip: "192.168.10.2"
+  end
+
+  config.vm.define "db" do |db|
+    db.vm.box = "hashicorp/precise32"
+    db.vm.provision :shell, path: "db.sh"
+    db.vm.network :forwarded_port, host: 5984, guest: 5984
+    db.vm.network "private_network", ip: "192.168.10.3"
+  end
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
