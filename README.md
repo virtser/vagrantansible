@@ -14,4 +14,4 @@ http://docs.ansible.com/intro_installation.html
 git clone https://github.com/virtser/blogexersise.git
 
 4. Create and provision environment:
-> vagrant up
+' vagrant up
