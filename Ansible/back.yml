@@ -1,0 +1,37 @@
+---
+- hosts: back
+  remote_user: vagrant
+  tasks:
+
+  - name: udtate apt-get package cache to latests version
+    sudo: yes
+    apt: update_cache=yes
+
+  - name: install apache2
+    sudo: yes
+    apt: name=apache2 state=present
+
+  - name: ensure apache2 is running
+    sudo: yes
+    service: name=apache2 state=started
+
+  - name: install python dependencies
+    sudo: yes
+    apt: name={{ item }} state=present
+    with_items:
+      - build-essential 
+      - libreadline-gplv2-dev
+      - libncursesw5-dev
+      - libssl-dev
+      - libsqlite3-dev
+      - tk-dev
+      - libgdbm-dev
+      - libc6-dev
+      - libbz2-dev
+      - make
+      - curl
+      - python-pip
+
+  - name: download, make and install python 2.7.5
+    sudo: yes
+    script: python.sh > output.txt

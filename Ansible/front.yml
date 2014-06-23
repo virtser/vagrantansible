@@ -1,0 +1,16 @@
+---
+- hosts: front
+  remote_user: vagrant
+  tasks:
+
+  - name: udtate apt-get package cache to latests version
+    sudo: yes
+    apt: update_cache=yes
+
+  - name: install apache2
+    sudo: yes
+    apt: name=apache2 state=present
+
+  - name: ensure apache2 is running
+    sudo: yes
+    service: name=apache2 state=started

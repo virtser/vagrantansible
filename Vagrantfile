@@ -12,24 +12,30 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.define "front" do |front|
     front.vm.box = "hashicorp/precise32"
-    front.vm.provision :shell, path: "VagrantProvision/front.sh"
+    front.vm.provision "ansible" do |ansible|
+        ansible.playbook = "Ansible/front.yml"
+    end
+    # front.vm.provision :shell, path: "VagrantProvision/front.sh"
     # front.vm.network :forwarded_port, host: 8080, guest: 80
     front.vm.network "private_network", ip: "192.168.10.10"
   end
 
   config.vm.define "back" do |back|
     back.vm.box = "hashicorp/precise32"
-    back.vm.provision :shell, path: "VagrantProvision/back.sh"
+    back.vm.provision "ansible" do |ansible|
+        ansible.playbook = "Ansible/back.yml"
+    end
+    # back.vm.provision :shell, path: "VagrantProvision/back.sh"
     # back.vm.network :forwarded_port, host: 8081, guest: 80
     back.vm.network "private_network", ip: "192.168.10.11"
   end
 
   config.vm.define "db" do |db|
     db.vm.box = "hashicorp/precise32"
-    # db.vm.provision :shell, path: "VagrantProvision/db.sh"
     db.vm.provision "ansible" do |ansible|
         ansible.playbook = "Ansible/dbs.yml"
     end
+    # db.vm.provision :shell, path: "VagrantProvision/db.sh"
     # db.vm.network :forwarded_port, host: 5984, guest: 5984
     db.vm.network "private_network", ip: "192.168.10.12"
   end
