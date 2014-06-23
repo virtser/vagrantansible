@@ -11,4 +11,7 @@ https://docs.vagrantup.com/v2/installation/
 http://docs.ansible.com/intro_installation.html
 
 3. Clone this repo:
-4. 
+git clone https://github.com/virtser/blogexersise.git
+
+4. Create and provision environment:
+> vagrant up
