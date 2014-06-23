@@ -1,7 +1,12 @@
 blogexersise
 ============
 
-Just an exercise for myself to build a blog using Vagrant, Ansible, CouchDB, Python and AngularJS.
+Just an exercise for myself to build a blog using full stack:
+* _Vagrant_ - servers environment managing
+* _Ansible_ - configuration management and provisioning
+* _CouchDB_ - data storage
+* _Python_ - server side 
+* _AngularJS_ - client side
 
 # Usage
 1. Install Vagrant:
