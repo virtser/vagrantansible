@@ -1,0 +1,41 @@
+---
+- hosts: db
+  vars:
+    binding: 0.0.0.0
+  remote_user: vagrant
+  tasks:
+
+  - name: udtate apt-get package cache to latests version
+    sudo: yes
+    apt: update_cache=yes
+
+  - name: install couchdb dependencies
+    sudo: yes
+    apt: name={{ item }} state=present
+    with_items:
+      - erlang-dev 
+      - erlang-manpages 
+      - erlang-base-hipe 
+      - erlang-eunit 
+      - erlang-nox 
+      - erlang-xmerl 
+      - erlang-inets
+      - libmozjs185-dev 
+      - libicu-dev
+      - libcurl4-gnutls-dev
+      - libtool
+      - g++
+      - make
+      - curl
+
+  - name: download, make and install couchdb 1.5.0
+    sudo: yes
+    script: couchdb.sh > output.txt
+
+  - name: update config file to allow any address binding
+    sudo: yes 
+    command: sed -i 's/;bind_address = 127.0.0.1/bind_address = 0.0.0.0/g' /usr/local/etc/couchdb/local.ini
+
+  - name: ensure couchdb is running
+    sudo: yes
+    service: name=couchdb state=started
