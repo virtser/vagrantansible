@@ -7,14 +7,6 @@
     sudo: yes
     apt: update_cache=yes
 
-  - name: install apache2
-    sudo: yes
-    apt: name=apache2 state=present
-
-  - name: ensure apache2 is running
-    sudo: yes
-    service: name=apache2 state=started
-
   - name: install python dependencies
     sudo: yes
     apt: name={{ item }} state=present
