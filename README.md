@@ -23,7 +23,7 @@ https://docs.vagrantup.com/v2/installation/
 * Install Ansible:
 http://docs.ansible.com/intro_installation.html
 
-* Clone this repo:
+* Clone this repository:
 ``` 
 git clone https://github.com/virtser/vagrantansible.git
 ```
