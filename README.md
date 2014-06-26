@@ -5,6 +5,8 @@ Just an exercise for myself to run and provision environment with Vagrant and An
 * _Vagrant_ - VMs environment managing
 * _Ansible_ - provisioning and configuration management
 
+Read more about these tools here: http://virtser.net/2014/06/26/vagrant-and-ansible/
+
 # Usage
 1. Install Vagrant:
 https://docs.vagrantup.com/v2/installation/
