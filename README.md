@@ -14,7 +14,7 @@ http://docs.ansible.com/intro_installation.html
 
 3. Clone this repo:
 ``` 
-git clone https://github.com/virtser/blogexersise.git
+git clone https://github.com/virtser/vagrantansible.git
 ``` 
 
 4. Create and provision environment:
