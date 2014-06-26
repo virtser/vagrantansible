@@ -17,18 +17,17 @@ Now we need to create the three machines, put them under the same private networ
 That's exactly what this example do. Please review the code, its very simple.
 
 # Usage
-1. Install Vagrant:
+* Install Vagrant:
 https://docs.vagrantup.com/v2/installation/
 
-2. Install Ansible:
+* Install Ansible:
 http://docs.ansible.com/intro_installation.html
 
-3. Clone this repo:
+* Clone this repo:
 ``` 
 git clone https://github.com/virtser/vagrantansible.git
-``` 
-
-4. Create and provision environment:
+```
+* Create and provision environment:
 ``` 
 vagrant up
 ```
