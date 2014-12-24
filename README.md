@@ -1,7 +1,7 @@
 Vagrant & Ansible
 ============
 
-Just an exercise for myself to run and provision environment with Vagrant and Ansible:
+Just a simple example of how to run and provision environment with Vagrant and Ansible:
 * _Vagrant_ - VMs environment managing
 * _Ansible_ - provisioning and configuration management
 
